@@ -1,7 +1,446 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website for Yeeun Shin.">
+  <title>Yeeun Shin | Personal Website</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f2;
+      --surface: #ffffff;
+      --text: #202124;
+      --muted: #5f6368;
+      --line: #d8d4ca;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --focus: #b45309;
+      --shadow: 0 18px 50px rgba(32, 33, 36, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration-thickness: 0.1em;
+      text-underline-offset: 0.22em;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      z-index: 10;
+      transform: translateY(-140%);
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 246, 242, 0.94);
+    }
+
+    .nav {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.25rem 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+    }
+
+    main {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
+      min-height: calc(100vh - 76px);
+      padding: clamp(3rem, 8vw, 5rem) 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.7rem;
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 12ch;
+      font-size: clamp(2.7rem, 8vw, 5.25rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.08rem;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      max-width: 62ch;
+      margin: 1.4rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--accent-dark);
+      border-radius: 6px;
+      background: var(--accent-dark);
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent-dark);
+    }
+
+    .button.secondary:hover {
+      background: #e6f3f1;
+      color: var(--accent-dark);
+    }
+
+    .profile-frame {
+      justify-self: center;
+      width: min(100%, 320px);
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section {
+      padding: clamp(2.5rem, 7vw, 4.5rem) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(170px, 0.34fr) minmax(0, 1fr);
+      gap: clamp(1.5rem, 5vw, 4rem);
+      align-items: start;
+    }
+
+    .section-kicker {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .content p:first-child {
+      margin-top: 0;
+    }
+
+    .content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .list {
+      display: grid;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .item {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag-list li {
+      padding: 0.4rem 0.65rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .site-footer {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 2.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .profile-frame {
+        justify-self: start;
+        width: min(100%, 260px);
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
 <body>
-  <h1>Welcome to my Personal Page</h1>
-  <p>Hosted on GitHub Pages!</p>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#">Yeeun Shin</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="intro-title">
+      <div>
+        <p class="eyebrow">Personal Website</p>
+        <h1 id="intro-title">Yeeun Shin</h1>
+        <p class="intro">
+          I build thoughtful, accessible digital work and keep this page as a simple home for my projects, background, and contact information.
+        </p>
+        <div class="actions" aria-label="Primary actions">
+          <a class="button" href="#work">View Work</a>
+          <a class="button secondary" href="assets/cv.pdf">Download CV</a>
+        </div>
+      </div>
+      <figure class="profile-frame">
+        <img src="assets/profile.jpg" alt="Portrait of Yeeun Shin">
+      </figure>
+    </section>
+
+    <section class="section section-grid" id="about" aria-labelledby="about-title">
+      <p class="section-kicker">About</p>
+      <div class="content">
+        <h2 id="about-title">Focused, practical, and curious.</h2>
+        <p>
+          I care about clear communication, useful interfaces, and work that is easy for people to understand and maintain.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-grid" id="work" aria-labelledby="work-title">
+      <p class="section-kicker">Work</p>
+      <div class="content">
+        <h2 id="work-title">Selected work</h2>
+        <ul class="list" aria-label="Selected work">
+          <li class="item">
+            <h3>Personal Website</h3>
+            <p>A simple GitHub Pages site for sharing background, projects, and contact details.</p>
+          </li>
+          <li class="item">
+            <h3>Selected Projects</h3>
+            <p>A place to highlight recent academic, design, research, or technical work.</p>
+          </li>
+          <li class="item">
+            <h3>Writing and Notes</h3>
+            <p>Short updates, publications, or reflections can be added here as the site grows.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-grid" id="cv" aria-labelledby="cv-title">
+      <p class="section-kicker">CV</p>
+      <div class="content">
+        <h2 id="cv-title">Resume and background</h2>
+        <p>
+          Download the latest CV as a PDF.
+        </p>
+        <p>
+          <a class="button" href="assets/cv.pdf">Open CV</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-grid" aria-labelledby="skills-title">
+      <p class="section-kicker">Skills</p>
+      <div class="content">
+        <h2 id="skills-title">Areas of focus</h2>
+        <ul class="tag-list" aria-label="Areas of focus">
+          <li>Research</li>
+          <li>Design</li>
+          <li>Data</li>
+          <li>Writing</li>
+          <li>Web</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-grid" id="contact" aria-labelledby="contact-title">
+      <p class="section-kicker">Contact</p>
+      <div class="content">
+        <h2 id="contact-title">Get in touch</h2>
+        <p>
+          The best way to follow updates and project work is through the links below.
+        </p>
+        <ul class="contact-links">
+          <li><a href="https://github.com/yeeun1126">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Yeeun Shin. Built as a static site for GitHub Pages.</p>
+  </footer>
 </body>
 </html>
