@@ -441,7 +441,7 @@
 
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-xl);
     }
 
@@ -525,6 +525,60 @@
       color: var(--inverse-ink);
     }
 
+    .info-list {
+      display: grid;
+      gap: var(--space-sm);
+      margin: var(--space-lg) 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      padding: var(--space-md);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.71;
+    }
+
+    .info-list strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .cv-details {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    .cv-detail {
+      padding: var(--space-lg);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: rgba(31, 35, 43, 0.72);
+    }
+
+    .cv-detail h3 {
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .cv-detail p,
+    .cv-detail ul {
+      margin: var(--space-sm) 0 0;
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.71;
+    }
+
+    .cv-detail ul {
+      padding-left: 1.1rem;
+    }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -588,6 +642,39 @@
       background: var(--surface-2);
       color: var(--ink);
       text-decoration: none;
+    }
+
+    .contact-links a[href^="mailto:"] {
+      background: var(--waypoint);
+      color: var(--inverse-ink);
+    }
+
+    .ai-card {
+      padding: var(--space-xxl);
+      border: 1px solid rgba(0, 202, 142, 0.28);
+      border-radius: var(--radius-xxl);
+      background:
+        linear-gradient(135deg, rgba(0, 202, 142, 0.14), rgba(21, 24, 30, 0) 46%),
+        var(--surface-1);
+    }
+
+    .ai-card .eyebrow::before {
+      background: var(--nomad);
+    }
+
+    .prompt-box {
+      margin-top: var(--space-lg);
+      padding: var(--space-lg);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--canvas);
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.71;
+    }
+
+    .prompt-box strong {
+      color: var(--ink);
     }
 
     .contact-visual {
@@ -679,6 +766,7 @@
 
       .work-grid,
       .skills-grid,
+      .cv-details,
       .cv-card,
       .contact-banner,
       .footer-grid {
@@ -738,8 +826,10 @@
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#cv">CV</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#ai-usage">AI Usage</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a class="nav-cta" href="assets/cv.pdf">Open CV</a>
@@ -753,11 +843,11 @@
           <p class="eyebrow">Personal Workspace</p>
           <h1 id="intro-title">Yeeun Shin</h1>
           <p class="hero-copy">
-            A focused, technical personal site for selected work, background, and contact links.
+            Biosystems Engineering student at Seoul National University, pursuing a combined major in Computational Science and a minor in Civil &amp; Environmental Engineering.
           </p>
           <div class="actions" aria-label="Primary actions">
             <a class="button primary" href="assets/cv.pdf">Download CV</a>
-            <a class="button secondary" href="#work">View work</a>
+            <a class="button secondary" href="#projects">View projects</a>
           </div>
         </div>
 
@@ -767,12 +857,12 @@
           </figure>
           <div class="profile-meta">
             <div class="metric">
-              <strong>Static</strong>
-              <span>GitHub Pages</span>
+              <strong>SNU</strong>
+              <span>Biosystems Engineering</span>
             </div>
             <div class="metric">
-              <strong>Simple</strong>
-              <span>No backend</span>
+              <strong>AI</strong>
+              <span>Spatial systems</span>
             </div>
           </div>
         </aside>
@@ -783,57 +873,64 @@
       <div class="container">
         <div class="section-header">
           <p class="eyebrow">About</p>
-          <h2 id="about-title">Clear structure for work that needs to be understood.</h2>
+          <h2 id="about-title">Computer graphics, spatial AI, and intelligent spatial systems.</h2>
           <p>
-            I care about communication, practical interfaces, and projects that stay easy to scan after the first impression.
+            I'm a Seoul National University student interested in computer graphics, spatial AI, and intelligent spatial systems, with a broad interest in artificial intelligence.
           </p>
         </div>
         <div class="about-grid">
           <article class="panel">
-            <h3>Profile</h3>
+            <h3>Academic Profile</h3>
             <p>
-              This page is a compact home for background, selected projects, and documents. It keeps the presentation direct while leaving room for future updates.
+              My major is Biosystems Engineering at Seoul National University, with a combined major in Computational Science and a minor in Civil &amp; Environmental Engineering.
             </p>
           </article>
-          <ul class="product-strip" aria-label="Site qualities">
-            <li><span>Accessible structure</span><span class="product-dot" aria-hidden="true"></span></li>
-            <li><span>Responsive layout</span><span class="product-dot" aria-hidden="true"></span></li>
-            <li><span>Static deployment</span><span class="product-dot" aria-hidden="true"></span></li>
+          <ul class="product-strip" aria-label="Interests">
+            <li><span>Computer graphics</span><span class="product-dot" aria-hidden="true"></span></li>
+            <li><span>Spatial AI</span><span class="product-dot" aria-hidden="true"></span></li>
+            <li><span>Intelligent spatial systems</span><span class="product-dot" aria-hidden="true"></span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" id="work" aria-labelledby="work-title">
+    <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <div class="section-header">
-          <p class="eyebrow">Work</p>
-          <h2 id="work-title">Selected work</h2>
+          <p class="eyebrow">Projects</p>
+          <h2 id="projects-title">Projects and activities</h2>
           <p>
-            A simple card system for projects, writing, and future highlights.
+            Technical projects, design work, leadership, and international AI program experience.
           </p>
         </div>
-        <div class="work-grid" aria-label="Selected work">
+        <div class="work-grid" aria-label="Projects and activities">
           <article class="feature-card accent">
             <div>
-              <p class="card-tag">Web</p>
-              <h3>Personal Website</h3>
+              <p class="card-tag">Computer Graphics</p>
+              <h3>Graphics Projects</h3>
             </div>
-            <p>A static GitHub Pages site using local assets and responsive markup.</p>
+            <p>Gouraud &amp; Phong Shading, Texture Mapping, and Normal Mapping.</p>
           </article>
           <article class="feature-card">
             <div>
-              <p class="card-tag">Projects</p>
-              <h3>Selected Projects</h3>
+              <p class="card-tag">Engineering Design</p>
+              <h3>UTV Design Project</h3>
             </div>
-            <p>A place to highlight academic, design, research, or technical work.</p>
+            <p>Shaft and drivetrain design for a utility terrain vehicle project.</p>
           </article>
           <article class="feature-card">
             <div>
-              <p class="card-tag">Writing</p>
-              <h3>Notes and Updates</h3>
+              <p class="card-tag">Leadership</p>
+              <h3>President, Yeominrak</h3>
             </div>
-            <p>Short publications, reflections, or updates can be added as the site grows.</p>
+            <p>Leading club activities and performances for the Traditional Korean Music Club.</p>
+          </article>
+          <article class="feature-card">
+            <div>
+              <p class="card-tag">AI Program</p>
+              <h3>SAP Winter School</h3>
+            </div>
+            <p>Participated in an artificial intelligence program at Aalto University.</p>
           </article>
         </div>
       </div>
@@ -846,26 +943,60 @@
             <p class="eyebrow">CV</p>
             <h2 id="cv-title">Resume and background</h2>
             <p>
-              The latest CV is linked as a local PDF asset, so it works cleanly on GitHub Pages.
+              Download my CV as a local PDF asset, or scan the summary below.
             </p>
           </div>
           <a class="button vault" href="assets/cv.pdf">Open CV</a>
         </div>
+        <div class="cv-details" aria-label="CV summary">
+          <article class="cv-detail">
+            <h3>Education</h3>
+            <p>Seoul National University, Biosystems Engineering; combined major in Computational Science; minor in Civil &amp; Environmental Engineering.</p>
+          </article>
+          <article class="cv-detail">
+            <h3>Skills</h3>
+            <ul>
+              <li>Python</li>
+              <li>C++</li>
+              <li>Java</li>
+              <li>OpenGL</li>
+              <li>Git</li>
+            </ul>
+          </article>
+          <article class="cv-detail">
+            <h3>Experience</h3>
+            <ul>
+              <li>SAP Winter School, Aalto University</li>
+              <li>President of Yeominrak Club</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="skills-title">
+    <section class="section" id="courses" aria-labelledby="courses-title">
       <div class="container">
         <div class="section-header">
-          <p class="eyebrow">Focus</p>
-          <h2 id="skills-title">Areas of focus</h2>
+          <p class="eyebrow">Courses</p>
+          <h2 id="courses-title">Courses I plan to take</h2>
         </div>
-        <ul class="skills-grid">
-          <li><strong>Research</strong>Framing questions and finding useful patterns.</li>
-          <li><strong>Design</strong>Making information easier to scan and act on.</li>
-          <li><strong>Data</strong>Working with structure, evidence, and interpretation.</li>
-          <li><strong>Writing</strong>Explaining ideas with clarity and restraint.</li>
+        <ul class="skills-grid" aria-label="Planned courses">
+          <li><strong>디지털신호처리의 기초</strong>Introduction to Digital Signal Processing</li>
+          <li><strong>공간정보공학</strong>Spatial Information Engineering</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section" id="ai-usage" aria-labelledby="ai-title">
+      <div class="container">
+        <div class="ai-card">
+          <p class="eyebrow">AI Usage</p>
+          <h2 id="ai-title">How this site was built</h2>
+          <div class="prompt-box">
+            <p><strong>Tool:</strong> Codex</p>
+            <p><strong>Prompt:</strong> "Build a static personal website in the repo root and apply a design theme from DESIGN.md."</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -876,8 +1007,8 @@
             <p class="eyebrow">Contact</p>
             <h2 id="contact-title">Connect and follow updates.</h2>
             <ul class="contact-links">
-              <li><a href="https://github.com/yeeun1126">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+              <li><a href="mailto:syu1012@snu.ac.kr">syu1012@snu.ac.kr</a></li>
+              <li><a href="https://github.com/yeeun1126">github.com/yeeun1126</a></li>
             </ul>
           </div>
           <div class="contact-visual" aria-hidden="true"></div>
