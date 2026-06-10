@@ -7,16 +7,36 @@
   <title>Yeeun Shin | Personal Website</title>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f7f6f2;
-      --surface: #ffffff;
-      --text: #202124;
-      --muted: #5f6368;
-      --line: #d8d4ca;
-      --accent: #0f766e;
-      --accent-dark: #115e59;
-      --focus: #b45309;
-      --shadow: 0 18px 50px rgba(32, 33, 36, 0.09);
+      color-scheme: dark;
+      --canvas: #000000;
+      --surface-1: #15181e;
+      --surface-2: #1f232b;
+      --surface-3: #3b3d45;
+      --hairline: rgba(178, 182, 189, 0.14);
+      --hairline-soft: #252830;
+      --ink: #ffffff;
+      --ink-muted: #b2b6bd;
+      --ink-subtle: #656a76;
+      --inverse-canvas: #ffffff;
+      --inverse-ink: #000000;
+      --accent-blue: #2b89ff;
+      --terraform: #7b42bc;
+      --terraform-bright: #911ced;
+      --vault: #ffcf25;
+      --waypoint: #14c6cb;
+      --vagrant: #1868f2;
+      --nomad: #00ca8e;
+      --boundary: #f24c53;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xxl: 24px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-xxl: 48px;
+      --space-section: 96px;
     }
 
     * {
@@ -29,109 +49,160 @@
 
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       font-size: 16px;
-      line-height: 1.65;
+      font-weight: 500;
+      line-height: 1.5;
     }
 
     a {
-      color: var(--accent-dark);
-      text-decoration-thickness: 0.1em;
-      text-underline-offset: 0.22em;
+      color: inherit;
     }
 
-    a:hover {
-      color: var(--accent);
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid var(--focus);
-      outline-offset: 4px;
+    a:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 3px;
     }
 
     .skip-link {
       position: absolute;
-      left: 1rem;
-      top: 1rem;
-      z-index: 10;
-      transform: translateY(-140%);
-      background: var(--surface);
-      color: var(--text);
-      padding: 0.6rem 0.8rem;
-      border: 1px solid var(--line);
-      border-radius: 6px;
+      top: var(--space-md);
+      left: var(--space-md);
+      z-index: 30;
+      transform: translateY(-150%);
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      background: var(--inverse-canvas);
+      color: var(--inverse-ink);
+      text-decoration: none;
     }
 
     .skip-link:focus {
       transform: translateY(0);
     }
 
+    .container {
+      width: min(1280px, calc(100% - 64px));
+      margin: 0 auto;
+    }
+
     .site-header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(247, 246, 242, 0.94);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(0, 0, 0, 0.88);
+      border-bottom: 1px solid var(--hairline);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
-      width: min(1080px, calc(100% - 2rem));
-      margin: 0 auto;
-      display: flex;
+      min-height: 64px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: var(--space-lg);
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 0;
     }
 
     .brand {
-      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--ink);
+      font-size: 14px;
       font-weight: 700;
       text-decoration: none;
     }
 
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--terraform), var(--terraform-bright));
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 0.25rem 1rem;
+      justify-content: center;
+      gap: var(--space-lg);
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 600;
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.71;
       text-decoration: none;
     }
 
     .nav-links a:hover {
-      color: var(--accent-dark);
+      color: var(--ink);
+    }
+
+    .nav-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      background: var(--inverse-canvas);
+      color: var(--inverse-ink);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.29;
+      text-decoration: none;
     }
 
     main {
-      width: min(1080px, calc(100% - 2rem));
-      margin: 0 auto;
+      overflow: hidden;
     }
 
     .hero {
+      position: relative;
+      padding: var(--space-section) 0;
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+
+    .hero-grid {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
+      gap: var(--space-xxl);
       align-items: center;
-      gap: clamp(2rem, 6vw, 5rem);
-      min-height: calc(100vh - 76px);
-      padding: clamp(3rem, 8vw, 5rem) 0;
     }
 
     .eyebrow {
-      margin: 0 0 0.7rem;
-      color: var(--accent-dark);
-      font-size: 0.85rem;
-      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      margin: 0;
+      padding: 4px 10px;
+      border: 1px solid var(--hairline);
+      border-radius: 9999px;
+      background: var(--surface-1);
+      color: var(--ink-muted);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.23;
       letter-spacing: 0;
       text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: var(--terraform);
     }
 
     h1,
@@ -142,193 +213,516 @@
     }
 
     h1 {
-      margin: 0;
-      max-width: 12ch;
-      font-size: clamp(2.7rem, 8vw, 5.25rem);
-      line-height: 0.98;
+      max-width: 10ch;
+      margin: var(--space-lg) 0 0;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 1.17;
       letter-spacing: 0;
     }
 
     h2 {
-      margin: 0 0 1.1rem;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      line-height: 1.15;
+      margin: 0;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.18;
       letter-spacing: 0;
     }
 
     h3 {
-      margin: 0 0 0.35rem;
-      font-size: 1.08rem;
-      line-height: 1.3;
+      margin: 0;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.18;
       letter-spacing: 0;
     }
 
-    .intro {
-      max-width: 62ch;
-      margin: 1.4rem 0 0;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.2rem);
+    .hero-copy {
+      max-width: 660px;
+      margin: var(--space-lg) 0 0;
+      color: var(--ink-muted);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.69;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 2rem;
+      gap: var(--space-sm);
+      margin-top: var(--space-xl);
     }
 
     .button {
+      min-height: 40px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0.7rem 1rem;
-      border: 1px solid var(--accent-dark);
-      border-radius: 6px;
-      background: var(--accent-dark);
-      color: #ffffff;
-      font-weight: 700;
+      padding: 10px 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.29;
       text-decoration: none;
     }
 
-    .button:hover {
-      background: var(--accent);
-      color: #ffffff;
+    .button.primary {
+      background: var(--inverse-canvas);
+      color: var(--inverse-ink);
     }
 
     .button.secondary {
-      background: transparent;
-      color: var(--accent-dark);
+      background: var(--surface-2);
+      color: var(--ink);
+      border-color: var(--hairline);
     }
 
-    .button.secondary:hover {
-      background: #e6f3f1;
-      color: var(--accent-dark);
+    .profile-card {
+      position: relative;
+      padding: var(--space-lg);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-xxl);
+      background:
+        linear-gradient(135deg, rgba(123, 66, 188, 0.18), rgba(21, 24, 30, 0) 48%),
+        var(--surface-1);
     }
 
-    .profile-frame {
-      justify-self: center;
-      width: min(100%, 320px);
-      aspect-ratio: 1;
-      border-radius: 8px;
+    .profile-card::before,
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      border-radius: var(--radius-lg);
+      background: rgba(123, 66, 188, 0.58);
+    }
+
+    .profile-card::before {
+      width: 76px;
+      height: 76px;
+      right: -18px;
+      top: 42px;
+      transform: rotate(12deg);
+    }
+
+    .profile-card::after {
+      width: 42px;
+      height: 42px;
+      right: 64px;
+      bottom: -12px;
+      transform: rotate(-18deg);
+    }
+
+    .profile-media {
+      position: relative;
+      z-index: 1;
+      margin: 0;
       overflow: hidden;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--surface-2);
+      aspect-ratio: 4 / 5;
     }
 
-    .profile-frame img {
-      display: block;
+    .profile-media img {
       width: 100%;
       height: 100%;
+      display: block;
       object-fit: cover;
+      object-position: center;
+    }
+
+    .profile-meta {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+    }
+
+    .metric {
+      padding: var(--space-md);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: rgba(31, 35, 43, 0.82);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 2px;
+      color: var(--ink-muted);
+      font-size: 13px;
+      line-height: 1.38;
     }
 
     .section {
-      padding: clamp(2.5rem, 7vw, 4.5rem) 0;
-      border-top: 1px solid var(--line);
+      padding: var(--space-section) 0;
+      border-bottom: 1px solid var(--hairline-soft);
     }
 
-    .section-grid {
+    .section-header {
+      max-width: 760px;
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-header .eyebrow::before {
+      background: currentColor;
+    }
+
+    .section-header p {
+      margin: var(--space-md) 0 0;
+      color: var(--ink-muted);
+      font-size: 18px;
+      line-height: 1.69;
+    }
+
+    .about-grid {
       display: grid;
-      grid-template-columns: minmax(170px, 0.34fr) minmax(0, 1fr);
-      gap: clamp(1.5rem, 5vw, 4rem);
-      align-items: start;
+      grid-template-columns: minmax(0, 0.86fr) minmax(280px, 0.54fr);
+      gap: var(--space-xl);
     }
 
-    .section-kicker {
-      margin: 0;
-      color: var(--muted);
-      font-weight: 700;
+    .panel,
+    .feature-card,
+    .resource-card {
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--surface-1);
     }
 
-    .content p:first-child {
-      margin-top: 0;
+    .panel {
+      padding: var(--space-xl);
     }
 
-    .content p:last-child {
-      margin-bottom: 0;
+    .panel p {
+      margin: var(--space-md) 0 0;
+      color: var(--ink-muted);
+      font-size: 16px;
+      line-height: 1.5;
     }
 
-    .list {
+    .product-strip {
       display: grid;
-      gap: 1rem;
+      gap: var(--space-sm);
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .item {
-      padding: 1rem;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-    }
-
-    .item p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .tag-list {
+    .product-strip li {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.71;
+    }
+
+    .product-dot {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 auto;
+      border-radius: 9999px;
+      background: var(--nomad);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-xl);
+    }
+
+    .feature-card {
+      min-height: 260px;
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .feature-card p {
+      margin: var(--space-md) 0 0;
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.71;
+    }
+
+    .card-tag {
+      width: fit-content;
+      margin-bottom: var(--space-xl);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: var(--surface-2);
+      color: var(--ink-muted);
+      font-size: 13px;
+      line-height: 1.38;
+    }
+
+    .feature-card.accent {
+      background: var(--terraform);
+      color: var(--ink);
+    }
+
+    .feature-card.accent p,
+    .feature-card.accent .card-tag {
+      color: var(--ink);
+    }
+
+    .feature-card.accent .card-tag {
+      background: rgba(0, 0, 0, 0.22);
+    }
+
+    .cv-section {
+      position: relative;
+    }
+
+    .cv-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255, 207, 37, 0.12), rgba(255, 207, 37, 0));
+      pointer-events: none;
+    }
+
+    .cv-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-xl);
+      align-items: center;
+      padding: var(--space-xxl);
+      border: 1px solid rgba(255, 207, 37, 0.32);
+      border-radius: var(--radius-xxl);
+      background: var(--surface-1);
+    }
+
+    .cv-card .eyebrow::before {
+      background: var(--vault);
+    }
+
+    .cv-card p {
+      max-width: 58ch;
+      margin: var(--space-md) 0 0;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    .button.vault {
+      background: var(--vault);
+      color: var(--inverse-ink);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .tag-list li {
-      padding: 0.4rem 0.65rem;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--surface);
-      color: var(--muted);
+    .skills-grid li {
+      padding: var(--space-lg);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--surface-1);
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.71;
+    }
+
+    .skills-grid strong {
+      display: block;
+      margin-bottom: var(--space-xs);
+      color: var(--ink);
+      font-size: 20px;
       font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .contact-banner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-xl);
+      align-items: center;
+      padding: var(--space-xxl);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-xxl);
+      background:
+        linear-gradient(135deg, rgba(20, 198, 203, 0.15), rgba(21, 24, 30, 0) 42%),
+        var(--surface-1);
+    }
+
+    .contact-banner .eyebrow::before {
+      background: var(--waypoint);
     }
 
     .contact-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem 1.2rem;
-      margin: 1rem 0 0;
+      gap: var(--space-sm);
+      margin: var(--space-lg) 0 0;
       padding: 0;
       list-style: none;
     }
 
-    .site-footer {
-      width: min(1080px, calc(100% - 2rem));
-      margin: 0 auto;
-      padding: 2rem 0 2.5rem;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.95rem;
+    .contact-links a {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
+      color: var(--ink);
+      text-decoration: none;
     }
 
-    @media (max-width: 760px) {
+    .contact-visual {
+      width: 168px;
+      height: 168px;
+      border: 1px solid rgba(20, 198, 203, 0.38);
+      border-radius: var(--radius-xxl);
+      background:
+        linear-gradient(135deg, rgba(20, 198, 203, 0.88), rgba(24, 104, 242, 0.82)),
+        var(--surface-2);
+    }
+
+    .site-footer {
+      padding: 64px 0;
+      color: var(--ink-muted);
+      font-size: 13px;
+      line-height: 1.38;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-lg);
+      align-items: start;
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-xl);
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 56px;
+      }
+
+      h2 {
+        font-size: 40px;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-grid,
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: min(100% - 32px, 1280px);
+      }
+
       .nav {
-        align-items: flex-start;
-        flex-direction: column;
+        grid-template-columns: 1fr auto;
+        gap: var(--space-md);
+        padding: var(--space-sm) 0;
       }
 
       .nav-links {
+        grid-column: 1 / -1;
         justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 2px;
       }
 
-      .hero {
+      .hero,
+      .section {
+        padding: 64px 0;
+      }
+
+      .hero-grid {
+        gap: var(--space-xl);
+      }
+
+      h1 {
+        font-size: 40px;
+        line-height: 1.19;
+      }
+
+      h2 {
+        font-size: 32px;
+        line-height: 1.21;
+      }
+
+      .work-grid,
+      .skills-grid,
+      .cv-card,
+      .contact-banner,
+      .footer-grid {
         grid-template-columns: 1fr;
-        min-height: auto;
       }
 
-      .profile-frame {
-        justify-self: start;
-        width: min(100%, 260px);
+      .button,
+      .nav-cta,
+      .contact-links a {
+        min-height: 44px;
       }
 
-      .section-grid {
+      .actions .button,
+      .cv-card .button {
+        width: 100%;
+      }
+
+      .profile-meta {
         grid-template-columns: 1fr;
-        gap: 0.8rem;
+      }
+
+      .contact-visual {
+        width: 100%;
+        height: 96px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-cta {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .panel,
+      .cv-card,
+      .contact-banner {
+        padding: var(--space-lg);
       }
     }
   </style>
@@ -337,110 +731,166 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#">Yeeun Shin</a>
+    <nav class="container nav" aria-label="Primary navigation">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">YS</span>
+        <span>Yeeun Shin</span>
+      </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <a class="nav-cta" href="assets/cv.pdf">Open CV</a>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero" aria-labelledby="intro-title">
-      <div>
-        <p class="eyebrow">Personal Website</p>
-        <h1 id="intro-title">Yeeun Shin</h1>
-        <p class="intro">
-          I build thoughtful, accessible digital work and keep this page as a simple home for my projects, background, and contact information.
-        </p>
-        <div class="actions" aria-label="Primary actions">
-          <a class="button" href="#work">View Work</a>
-          <a class="button secondary" href="assets/cv.pdf">Download CV</a>
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Personal Workspace</p>
+          <h1 id="intro-title">Yeeun Shin</h1>
+          <p class="hero-copy">
+            A focused, technical personal site for selected work, background, and contact links.
+          </p>
+          <div class="actions" aria-label="Primary actions">
+            <a class="button primary" href="assets/cv.pdf">Download CV</a>
+            <a class="button secondary" href="#work">View work</a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile summary">
+          <figure class="profile-media">
+            <img src="assets/profile.jpg" alt="Portrait of Yeeun Shin">
+          </figure>
+          <div class="profile-meta">
+            <div class="metric">
+              <strong>Static</strong>
+              <span>GitHub Pages</span>
+            </div>
+            <div class="metric">
+              <strong>Simple</strong>
+              <span>No backend</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">Clear structure for work that needs to be understood.</h2>
+          <p>
+            I care about communication, practical interfaces, and projects that stay easy to scan after the first impression.
+          </p>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>Profile</h3>
+            <p>
+              This page is a compact home for background, selected projects, and documents. It keeps the presentation direct while leaving room for future updates.
+            </p>
+          </article>
+          <ul class="product-strip" aria-label="Site qualities">
+            <li><span>Accessible structure</span><span class="product-dot" aria-hidden="true"></span></li>
+            <li><span>Responsive layout</span><span class="product-dot" aria-hidden="true"></span></li>
+            <li><span>Static deployment</span><span class="product-dot" aria-hidden="true"></span></li>
+          </ul>
         </div>
       </div>
-      <figure class="profile-frame">
-        <img src="assets/profile.jpg" alt="Portrait of Yeeun Shin">
-      </figure>
     </section>
 
-    <section class="section section-grid" id="about" aria-labelledby="about-title">
-      <p class="section-kicker">About</p>
-      <div class="content">
-        <h2 id="about-title">Focused, practical, and curious.</h2>
-        <p>
-          I care about clear communication, useful interfaces, and work that is easy for people to understand and maintain.
-        </p>
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Work</p>
+          <h2 id="work-title">Selected work</h2>
+          <p>
+            A simple card system for projects, writing, and future highlights.
+          </p>
+        </div>
+        <div class="work-grid" aria-label="Selected work">
+          <article class="feature-card accent">
+            <div>
+              <p class="card-tag">Web</p>
+              <h3>Personal Website</h3>
+            </div>
+            <p>A static GitHub Pages site using local assets and responsive markup.</p>
+          </article>
+          <article class="feature-card">
+            <div>
+              <p class="card-tag">Projects</p>
+              <h3>Selected Projects</h3>
+            </div>
+            <p>A place to highlight academic, design, research, or technical work.</p>
+          </article>
+          <article class="feature-card">
+            <div>
+              <p class="card-tag">Writing</p>
+              <h3>Notes and Updates</h3>
+            </div>
+            <p>Short publications, reflections, or updates can be added as the site grows.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section section-grid" id="work" aria-labelledby="work-title">
-      <p class="section-kicker">Work</p>
-      <div class="content">
-        <h2 id="work-title">Selected work</h2>
-        <ul class="list" aria-label="Selected work">
-          <li class="item">
-            <h3>Personal Website</h3>
-            <p>A simple GitHub Pages site for sharing background, projects, and contact details.</p>
-          </li>
-          <li class="item">
-            <h3>Selected Projects</h3>
-            <p>A place to highlight recent academic, design, research, or technical work.</p>
-          </li>
-          <li class="item">
-            <h3>Writing and Notes</h3>
-            <p>Short updates, publications, or reflections can be added here as the site grows.</p>
-          </li>
+    <section class="section cv-section" id="cv" aria-labelledby="cv-title">
+      <div class="container">
+        <div class="cv-card">
+          <div>
+            <p class="eyebrow">CV</p>
+            <h2 id="cv-title">Resume and background</h2>
+            <p>
+              The latest CV is linked as a local PDF asset, so it works cleanly on GitHub Pages.
+            </p>
+          </div>
+          <a class="button vault" href="assets/cv.pdf">Open CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Focus</p>
+          <h2 id="skills-title">Areas of focus</h2>
+        </div>
+        <ul class="skills-grid">
+          <li><strong>Research</strong>Framing questions and finding useful patterns.</li>
+          <li><strong>Design</strong>Making information easier to scan and act on.</li>
+          <li><strong>Data</strong>Working with structure, evidence, and interpretation.</li>
+          <li><strong>Writing</strong>Explaining ideas with clarity and restraint.</li>
         </ul>
       </div>
     </section>
 
-    <section class="section section-grid" id="cv" aria-labelledby="cv-title">
-      <p class="section-kicker">CV</p>
-      <div class="content">
-        <h2 id="cv-title">Resume and background</h2>
-        <p>
-          Download the latest CV as a PDF.
-        </p>
-        <p>
-          <a class="button" href="assets/cv.pdf">Open CV</a>
-        </p>
-      </div>
-    </section>
-
-    <section class="section section-grid" aria-labelledby="skills-title">
-      <p class="section-kicker">Skills</p>
-      <div class="content">
-        <h2 id="skills-title">Areas of focus</h2>
-        <ul class="tag-list" aria-label="Areas of focus">
-          <li>Research</li>
-          <li>Design</li>
-          <li>Data</li>
-          <li>Writing</li>
-          <li>Web</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section-grid" id="contact" aria-labelledby="contact-title">
-      <p class="section-kicker">Contact</p>
-      <div class="content">
-        <h2 id="contact-title">Get in touch</h2>
-        <p>
-          The best way to follow updates and project work is through the links below.
-        </p>
-        <ul class="contact-links">
-          <li><a href="https://github.com/yeeun1126">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
-        </ul>
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-banner">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Connect and follow updates.</h2>
+            <ul class="contact-links">
+              <li><a href="https://github.com/yeeun1126">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="contact-visual" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Yeeun Shin. Built as a static site for GitHub Pages.</p>
+    <div class="container footer-grid">
+      <p>&copy; 2026 Yeeun Shin</p>
+      <p>Static site for GitHub Pages</p>
+    </div>
   </footer>
 </body>
 </html>
