@@ -608,10 +608,7 @@
     }
 
     .contact-banner {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: var(--space-xl);
-      align-items: center;
+      display: block;
       padding: var(--space-xxl);
       border: 1px solid var(--hairline);
       border-radius: var(--radius-xxl);
@@ -650,6 +647,7 @@
     }
 
     .ai-card {
+      margin-top: var(--space-xl);
       padding: var(--space-xxl);
       border: 1px solid rgba(0, 202, 142, 0.28);
       border-radius: var(--radius-xxl);
@@ -675,16 +673,6 @@
 
     .prompt-box strong {
       color: var(--ink);
-    }
-
-    .contact-visual {
-      width: 168px;
-      height: 168px;
-      border: 1px solid rgba(20, 198, 203, 0.38);
-      border-radius: var(--radius-xxl);
-      background:
-        linear-gradient(135deg, rgba(20, 198, 203, 0.88), rgba(24, 104, 242, 0.82)),
-        var(--surface-2);
     }
 
     .site-footer {
@@ -788,10 +776,6 @@
         grid-template-columns: 1fr;
       }
 
-      .contact-visual {
-        width: 100%;
-        height: 96px;
-      }
     }
 
     @media (max-width: 480px) {
@@ -825,9 +809,8 @@
         <span>Yeeun Shin</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
+        <li><a href="#about-me">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#cv">CV</a></li>
         <li><a href="#courses">Courses</a></li>
         <li><a href="#ai-usage">AI Usage</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -843,7 +826,7 @@
           <p class="eyebrow">Personal Workspace</p>
           <h1 id="intro-title">Yeeun Shin</h1>
           <p class="hero-copy">
-            Biosystems Engineering student at Seoul National University, pursuing a combined major in Computational Science and a minor in Civil &amp; Environmental Engineering.
+            Seoul National University student in Biosystems Engineering, Artificial Intelligence, Computer Science &amp; Engineering, and Civil &amp; Environmental Engineering.
           </p>
           <div class="actions" aria-label="Primary actions">
             <a class="button primary" href="assets/cv.pdf">Download CV</a>
@@ -862,34 +845,55 @@
             </div>
             <div class="metric">
               <strong>AI</strong>
-              <span>Spatial systems</span>
+              <span>Graphics and spatial systems</span>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="about" aria-labelledby="about-title">
+    <section class="section" id="about-me" aria-labelledby="about-title">
       <div class="container">
         <div class="section-header">
-          <p class="eyebrow">About</p>
+          <p class="eyebrow">About Me</p>
           <h2 id="about-title">Computer graphics, spatial AI, and intelligent spatial systems.</h2>
           <p>
-            I'm a Seoul National University student interested in computer graphics, spatial AI, and intelligent spatial systems, with a broad interest in artificial intelligence.
+            <strong>Self-introduction:</strong> I'm interested in computer graphics, spatial AI, and intelligent spatial systems, with a broad interest in artificial intelligence.
           </p>
         </div>
         <div class="about-grid">
           <article class="panel">
-            <h3>Academic Profile</h3>
+            <h3>Profile</h3>
             <p>
-              My major is Biosystems Engineering at Seoul National University, with a combined major in Computational Science and a minor in Civil &amp; Environmental Engineering.
+              <strong>Name:</strong> Yeeun Shin
             </p>
+            <p>
+              <strong>School:</strong> Seoul National University
+            </p>
+            <ul class="info-list" aria-label="Education and majors">
+              <li><strong>Primary major:</strong> Biosystems Engineering</li>
+              <li><strong>Combined major:</strong> Artificial Intelligence</li>
+              <li><strong>Minor 1:</strong> Computer Science &amp; Engineering</li>
+              <li><strong>Minor 2:</strong> Civil &amp; Environmental Engineering</li>
+            </ul>
           </article>
           <ul class="product-strip" aria-label="Interests">
             <li><span>Computer graphics</span><span class="product-dot" aria-hidden="true"></span></li>
             <li><span>Spatial AI</span><span class="product-dot" aria-hidden="true"></span></li>
             <li><span>Intelligent spatial systems</span><span class="product-dot" aria-hidden="true"></span></li>
           </ul>
+        </div>
+        <div class="cv-details" aria-label="Skills and resume summary">
+          <article class="cv-detail">
+            <h3>Skills</h3>
+            <p><strong>Programming languages:</strong> Python, C++, Java, OpenGL, Git</p>
+            <p><strong>English test score:</strong> TOEFL ibt 100</p>
+          </article>
+          <article class="cv-detail">
+            <h3>CV / Resume</h3>
+            <p>Download the resume PDF from the local site assets.</p>
+            <p><a class="button vault" href="assets/cv.pdf">Download CV</a></p>
+          </article>
         </div>
       </div>
     </section>
@@ -906,69 +910,31 @@
         <div class="work-grid" aria-label="Projects and activities">
           <article class="feature-card accent">
             <div>
-              <p class="card-tag">Computer Graphics</p>
-              <h3>Graphics Projects</h3>
+              <p class="card-tag">Projects</p>
+              <h3>Gouraud &amp; Phong Shading</h3>
             </div>
-            <p>Gouraud &amp; Phong Shading, Texture Mapping, and Normal Mapping.</p>
+            <p><strong>Computer Graphics Projects:</strong> Texture Mapping and Normal Mapping.</p>
           </article>
           <article class="feature-card">
             <div>
-              <p class="card-tag">Engineering Design</p>
-              <h3>UTV Design Project</h3>
+              <p class="card-tag">Projects</p>
+              <h3>Shaft and drivetrain design</h3>
             </div>
-            <p>Shaft and drivetrain design for a utility terrain vehicle project.</p>
+            <p><strong>UTV Design Project:</strong> Mechanical design work focused on drivetrain components.</p>
           </article>
           <article class="feature-card">
             <div>
-              <p class="card-tag">Leadership</p>
+              <p class="card-tag">Activities</p>
               <h3>President, Yeominrak</h3>
             </div>
-            <p>Leading club activities and performances for the Traditional Korean Music Club.</p>
+            <p>Traditional Korean Music Club: leading club activities and performances.</p>
           </article>
           <article class="feature-card">
             <div>
-              <p class="card-tag">AI Program</p>
+              <p class="card-tag">Activities</p>
               <h3>SAP Winter School</h3>
             </div>
-            <p>Participated in an artificial intelligence program at Aalto University.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cv-section" id="cv" aria-labelledby="cv-title">
-      <div class="container">
-        <div class="cv-card">
-          <div>
-            <p class="eyebrow">CV</p>
-            <h2 id="cv-title">Resume and background</h2>
-            <p>
-              Download my CV as a local PDF asset, or scan the summary below.
-            </p>
-          </div>
-          <a class="button vault" href="assets/cv.pdf">Open CV</a>
-        </div>
-        <div class="cv-details" aria-label="CV summary">
-          <article class="cv-detail">
-            <h3>Education</h3>
-            <p>Seoul National University, Biosystems Engineering; combined major in Computational Science; minor in Civil &amp; Environmental Engineering.</p>
-          </article>
-          <article class="cv-detail">
-            <h3>Skills</h3>
-            <ul>
-              <li>Python</li>
-              <li>C++</li>
-              <li>Java</li>
-              <li>OpenGL</li>
-              <li>Git</li>
-            </ul>
-          </article>
-          <article class="cv-detail">
-            <h3>Experience</h3>
-            <ul>
-              <li>SAP Winter School, Aalto University</li>
-              <li>President of Yeominrak Club</li>
-            </ul>
+            <p>At Aalto University, Finland: participated in an AI program.</p>
           </article>
         </div>
       </div>
@@ -1007,11 +973,10 @@
             <p class="eyebrow">Contact</p>
             <h2 id="contact-title">Connect and follow updates.</h2>
             <ul class="contact-links">
-              <li><a href="mailto:syu1012@snu.ac.kr">syu1012@snu.ac.kr</a></li>
-              <li><a href="https://github.com/yeeun1126">github.com/yeeun1126</a></li>
+              <li><a href="mailto:syu1012@snu.ac.kr">Email: syu1012@snu.ac.kr</a></li>
+              <li><a href="https://github.com/yeeun1126">GitHub: github.com/yeeun1126</a></li>
             </ul>
           </div>
-          <div class="contact-visual" aria-hidden="true"></div>
         </div>
       </div>
     </section>
